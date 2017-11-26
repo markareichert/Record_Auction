@@ -1,0 +1,24 @@
+﻿@model List<Record_Auction.Models.RecordModels.Record>
+
+<h1>Records</h1>
+
+    <form method="post">
+
+        @foreach (var record in Model)
+        {
+            <input type="checkbox" name="recordIds" id="@record.ID" value="@record.ID"/>
+            <label for="@record.ID">@string.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6} | {7}", record.Artist, record.SideA, record.SideB, record.Notes, record.Label, record.RecordNumber, record.Condition.Name, record.MinValue)</label>
+            <br />
+        }
+    </form>
+
+@if (Model.Count == 0)
+{
+    <p>No records yet!</p>
+}
+
+<p>
+    <a asp-controller="Record" asp-action="Add">Add |</a>
+    <a asp-controller="Record" asp-action="Remove">Remove |</a>
+    <a asp-controller="Record" asp-action="Auction">Create Auction</a>
+</p>

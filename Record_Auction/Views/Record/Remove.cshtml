@@ -1,0 +1,15 @@
+﻿@model List<Record_Auction.Models.RecordModels.Record>
+
+<h1>Remove Records</h1>
+
+<form method="post">
+
+    @foreach (var record in Model)
+    {
+        <input type="checkbox" name="recordIds" id="@record.ID" value="@record.ID" />
+        <label for="@record.ID">@string.Format("{0} | {1} | {2} | {3}", record.Artist, record.SideA, record.Label, record.RecordNumber)</label>
+        <br />
+    }
+
+    <input type="submit" value="Remove Selected Record(s)" />
+</form>
